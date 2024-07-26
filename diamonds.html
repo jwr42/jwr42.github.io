@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href='/' />
+    <meta charset="utf-8" />
+    <link rel="icon" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/apple-touch-icon.png" />
+    <link rel="manifest" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        var scrollbarHeight = 20; // Max between windows, mac, and linux
+        
+        function setHeight() {
+          var element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          var hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          var newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+        
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((entries) => {
+          setHeight();
+        });
+        resizeObserver.observe(obj.contentWindow.document.body);
+      }
+    </script>
+    <marimo-filename hidden>diamonds.py</marimo-filename>
+    <marimo-mode data-mode='read' hidden></marimo-mode>
+    <marimo-version data-version='0.7.11' hidden></marimo-version>
+    <marimo-user-config data-config='{"completion": {"activate_on_typing": true, "copilot": false}, "display": {"cell_output": "above", "code_editor_font_size": 14, "default_width": "medium", "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "on_cell_change": "autorun"}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}}' hidden></marimo-user-config>
+    <marimo-app-config data-config='{"app_title": null, "layout_file": null, "width": "compact"}' hidden></marimo-app-config>
+    <marimo-server-token data-token='static' hidden></marimo-server-token>
+    <title>diamonds</title>
+    <script type="module" crossorigin crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/index-DG8c_PAb.js"></script>
+    <link rel="stylesheet" crossorigin crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist/assets/index-BYvcKOhL.css">
+  
+    <script data-marimo="true">
+        window.__MARIMO_STATIC__ = {};
+        window.__MARIMO_STATIC__.version = "0.7.11";
+        window.__MARIMO_STATIC__.notebookState = {"cellIds": ["Hbol", "MJUe", "DCoz", "LJsb"], "cellNames": ["X18=", "X18=", "X18=", "X18="], "cellCodes": ["aW1wb3J0JTIwcGFuZGFzJTIwYXMlMjBwZCUwQWltcG9ydCUyMHNlYWJvcm4lMjBhcyUyMHNucw==", "ZGYlMjAlM0QlMjBzbnMubG9hZF9kYXRhc2V0KCdkaWFtb25kcycp", "ZGYuaGVhZCgp", "ZGYuaW5mbygp"], "cellConfigs": ["JTdCJTIyZGlzYWJsZWQlMjIlM0ElMjBmYWxzZSUyQyUyMCUyMmhpZGVfY29kZSUyMiUzQSUyMGZhbHNlJTdE", "JTdCJTIyZGlzYWJsZWQlMjIlM0ElMjBmYWxzZSUyQyUyMCUyMmhpZGVfY29kZSUyMiUzQSUyMGZhbHNlJTdE", "JTdCJTIyZGlzYWJsZWQlMjIlM0ElMjBmYWxzZSUyQyUyMCUyMmhpZGVfY29kZSUyMiUzQSUyMGZhbHNlJTdE", "JTdCJTIyZGlzYWJsZWQlMjIlM0ElMjBmYWxzZSUyQyUyMCUyMmhpZGVfY29kZSUyMiUzQSUyMGZhbHNlJTdE"], "cellOutputs": {"Hbol": "JTdCJTIyY2hhbm5lbCUyMiUzQSUyMCUyMm91dHB1dCUyMiUyQyUyMCUyMm1pbWV0eXBlJTIyJTNBJTIwJTIydGV4dCUyRnBsYWluJTIyJTJDJTIwJTIyZGF0YSUyMiUzQSUyMCUyMiUyMiUyQyUyMCUyMnRpbWVzdGFtcCUyMiUzQSUyMDE3MjIwMDY5NTIuNDk2MTMzOCU3RA==", "MJUe": "JTdCJTIyY2hhbm5lbCUyMiUzQSUyMCUyMm91dHB1dCUyMiUyQyUyMCUyMm1pbWV0eXBlJTIyJTNBJTIwJTIydGV4dCUyRnBsYWluJTIyJTJDJTIwJTIyZGF0YSUyMiUzQSUyMCUyMiUyMiUyQyUyMCUyMnRpbWVzdGFtcCUyMiUzQSUyMDE3MjIwMDY5NTUuMDAwNDElN0Q=", "DCoz": "JTdCJTIyY2hhbm5lbCUyMiUzQSUyMCUyMm91dHB1dCUyMiUyQyUyMCUyMm1pbWV0eXBlJTIyJTNBJTIwJTIydGV4dCUyRmh0bWwlMjIlMkMlMjAlMjJkYXRhJTIyJTNBJTIwJTIyJTNDbWFyaW1vLXVpLWVsZW1lbnQlMjBvYmplY3QtaWQlM0QnRENvei0wJyUyMHJhbmRvbS1pZCUzRCc0MjgxNjZhOC02ZDQ4LTQzMTEtOWM0OS05OWFlZTM2Y2MyZjEnJTNFJTNDbWFyaW1vLXRhYmxlJTIwZGF0YS1pbml0aWFsLXZhbHVlJTNEJyU1QiU1RCclMjBkYXRhLWxhYmVsJTNEJ251bGwnJTIwZGF0YS1kYXRhJTNEJyUyNnF1b3QlM0IuJTJGJTQwZmlsZSUyRjI3OS0yMDY2MTEwLTNvMVo3TFNGLmNzdiUyNnF1b3QlM0InJTIwZGF0YS1oYXMtbW9yZSUzRCdmYWxzZSclMjBkYXRhLXRvdGFsLXJvd3MlM0QnNSclMjBkYXRhLXBhZ2luYXRpb24lM0QndHJ1ZSclMjBkYXRhLXBhZ2Utc2l6ZSUzRCcxMCclMjBkYXRhLWZpZWxkLXR5cGVzJTNEJyU3QiUyNnF1b3QlM0JjYXJhdCUyNnF1b3QlM0IlM0ElMjAlNUIlMjZxdW90JTNCbnVtYmVyJTI2cXVvdCUzQiUyQyUyMCUyNnF1b3QlM0JmbG9hdDY0JTI2cXVvdCUzQiU1RCUyQyUyMCUyNnF1b3QlM0JjdXQlMjZxdW90JTNCJTNBJTIwJTVCJTI2cXVvdCUzQnN0cmluZyUyNnF1b3QlM0IlMkMlMjAlMjZxdW90JTNCY2F0ZWdvcnklMjZxdW90JTNCJTVEJTJDJTIwJTI2cXVvdCUzQmNvbG9yJTI2cXVvdCUzQiUzQSUyMCU1QiUyNnF1b3QlM0JzdHJpbmclMjZxdW90JTNCJTJDJTIwJTI2cXVvdCUzQmNhdGVnb3J5JTI2cXVvdCUzQiU1RCUyQyUyMCUyNnF1b3QlM0JjbGFyaXR5JTI2cXVvdCUzQiUzQSUyMCU1QiUyNnF1b3QlM0JzdHJpbmclMjZxdW90JTNCJTJDJTIwJTI2cXVvdCUzQmNhdGVnb3J5JTI2cXVvdCUzQiU1RCUyQyUyMCUyNnF1b3QlM0JkZXB0aCUyNnF1b3QlM0IlM0ElMjAlNUIlMjZxdW90JTNCbnVtYmVyJTI2cXVvdCUzQiUyQyUyMCUyNnF1b3QlM0JmbG9hdDY0JTI2cXVvdCUzQiU1RCUyQyUyMCUyNnF1b3QlM0J0YWJsZSUyNnF1b3QlM0IlM0ElMjAlNUIlMjZxdW90JTNCbnVtYmVyJTI2cXVvdCUzQiUyQyUyMCUyNnF1b3QlM0JmbG9hdDY0JTI2cXVvdCUzQiU1RCUyQyUyMCUyNnF1b3QlM0JwcmljZSUyNnF1b3QlM0IlM0ElMjAlNUIlMjZxdW90JTNCaW50ZWdlciUyNnF1b3QlM0IlMkMlMjAlMjZxdW90JTNCaW50NjQlMjZxdW90JTNCJTVEJTJDJTIwJTI2cXVvdCUzQnglMjZxdW90JTNCJTNBJTIwJTVCJTI2cXVvdCUzQm51bWJlciUyNnF1b3QlM0IlMkMlMjAlMjZxdW90JTNCZmxvYXQ2NCUyNnF1b3QlM0IlNUQlMkMlMjAlMjZxdW90JTNCeSUyNnF1b3QlM0IlM0ElMjAlNUIlMjZxdW90JTNCbnVtYmVyJTI2cXVvdCUzQiUyQyUyMCUyNnF1b3QlM0JmbG9hdDY0JTI2cXVvdCUzQiU1RCUyQyUyMCUyNnF1b3QlM0J6JTI2cXVvdCUzQiUzQSUyMCU1QiUyNnF1b3QlM0JudW1iZXIlMjZxdW90JTNCJTJDJTIwJTI2cXVvdCUzQmZsb2F0NjQlMjZxdW90JTNCJTVEJTdEJyUyMGRhdGEtc2hvdy1maWx0ZXJzJTNEJ3RydWUnJTIwZGF0YS1zaG93LWRvd25sb2FkJTNEJ3RydWUnJTIwZGF0YS1zaG93LWNvbHVtbi1zdW1tYXJpZXMlM0QndHJ1ZSclMjBkYXRhLXJvdy1oZWFkZXJzJTNEJyU1QiU1RCclM0UlM0MlMkZtYXJpbW8tdGFibGUlM0UlM0MlMkZtYXJpbW8tdWktZWxlbWVudCUzRSUyMiUyQyUyMCUyMnRpbWVzdGFtcCUyMiUzQSUyMDE3MjIwMDY5ODkuMDQwNTk2JTdE", "LJsb": "JTdCJTIyY2hhbm5lbCUyMiUzQSUyMCUyMm91dHB1dCUyMiUyQyUyMCUyMm1pbWV0eXBlJTIyJTNBJTIwJTIydGV4dCUyRnBsYWluJTIyJTJDJTIwJTIyZGF0YSUyMiUzQSUyMCUyMiUyMiUyQyUyMCUyMnRpbWVzdGFtcCUyMiUzQSUyMDE3MjIwMDcwNTIuNDg2MTglN0Q="}, "cellConsoleOutputs": {"LJsb": ["JTdCJTIyY2hhbm5lbCUyMiUzQSUyMCUyMnN0ZG91dCUyMiUyQyUyMCUyMm1pbWV0eXBlJTIyJTNBJTIwJTIydGV4dCUyRnBsYWluJTIyJTJDJTIwJTIyZGF0YSUyMiUzQSUyMCUyMiUzQ2NsYXNzJTIwJ3BhbmRhcy5jb3JlLmZyYW1lLkRhdGFGcmFtZSclM0UlNUNuUmFuZ2VJbmRleCUzQSUyMDUzOTQwJTIwZW50cmllcyUyQyUyMDAlMjB0byUyMDUzOTM5JTVDbkRhdGElMjBjb2x1bW5zJTIwKHRvdGFsJTIwMTAlMjBjb2x1bW5zKSUzQSU1Q24lMjAlMjMlMjAlMjAlMjBDb2x1bW4lMjAlMjAlMjBOb24tTnVsbCUyMENvdW50JTIwJTIwRHR5cGUlMjAlMjAlMjAlNUNuLS0tJTIwJTIwLS0tLS0tJTIwJTIwJTIwLS0tLS0tLS0tLS0tLS0lMjAlMjAtLS0tLSUyMCUyMCUyMCU1Q24lMjAwJTIwJTIwJTIwY2FyYXQlMjAlMjAlMjAlMjA1Mzk0MCUyMG5vbi1udWxsJTIwJTIwZmxvYXQ2NCUyMCU1Q24lMjAxJTIwJTIwJTIwY3V0JTIwJTIwJTIwJTIwJTIwJTIwNTM5NDAlMjBub24tbnVsbCUyMCUyMGNhdGVnb3J5JTVDbiUyMDIlMjAlMjAlMjBjb2xvciUyMCUyMCUyMCUyMDUzOTQwJTIwbm9uLW51bGwlMjAlMjBjYXRlZ29yeSU1Q24lMjAzJTIwJTIwJTIwY2xhcml0eSUyMCUyMDUzOTQwJTIwbm9uLW51bGwlMjAlMjBjYXRlZ29yeSU1Q24lMjA0JTIwJTIwJTIwZGVwdGglMjAlMjAlMjAlMjA1Mzk0MCUyMG5vbi1udWxsJTIwJTIwZmxvYXQ2NCUyMCU1Q24lMjA1JTIwJTIwJTIwdGFibGUlMjAlMjAlMjAlMjA1Mzk0MCUyMG5vbi1udWxsJTIwJTIwZmxvYXQ2NCUyMCU1Q24lMjA2JTIwJTIwJTIwcHJpY2UlMjAlMjAlMjAlMjA1Mzk0MCUyMG5vbi1udWxsJTIwJTIwaW50NjQlMjAlMjAlMjAlNUNuJTIwNyUyMCUyMCUyMHglMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjA1Mzk0MCUyMG5vbi1udWxsJTIwJTIwZmxvYXQ2NCUyMCU1Q24lMjA4JTIwJTIwJTIweSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMDUzOTQwJTIwbm9uLW51bGwlMjAlMjBmbG9hdDY0JTIwJTVDbiUyMDklMjAlMjAlMjB6JTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwNTM5NDAlMjBub24tbnVsbCUyMCUyMGZsb2F0NjQlMjAlNUNuZHR5cGVzJTNBJTIwY2F0ZWdvcnkoMyklMkMlMjBmbG9hdDY0KDYpJTJDJTIwaW50NjQoMSklNUNubWVtb3J5JTIwdXNhZ2UlM0ElMjAzLjAlMjBNQiU1Q24lMjIlMkMlMjAlMjJ0aW1lc3RhbXAlMjIlM0ElMjAxNzIyMDA3MDUyLjQ5ODA4MSU3RA=="]}};
+        window.__MARIMO_STATIC__.assetUrl = "https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.7.11/dist";
+        window.__MARIMO_STATIC__.files = {"/@file/279-2066110-3o1Z7LSF.csv": "data:text/csv;base64,Y2FyYXQsY3V0LGNvbG9yLGNsYXJpdHksZGVwdGgsdGFibGUscHJpY2UseCx5LHoKMC4yMyxJZGVhbCxFLFNJMiw2MS41LDU1LjAsMzI2LDMuOTUsMy45OCwyLjQzCjAuMjEsUHJlbWl1bSxFLFNJMSw1OS44LDYxLjAsMzI2LDMuODksMy44NCwyLjMxCjAuMjMsR29vZCxFLFZTMSw1Ni45LDY1LjAsMzI3LDQuMDUsNC4wNywyLjMxCjAuMjksUHJlbWl1bSxJLFZTMiw2Mi40LDU4LjAsMzM0LDQuMiw0LjIzLDIuNjMKMC4zMSxHb29kLEosU0kyLDYzLjMsNTguMCwzMzUsNC4zNCw0LjM1LDIuNzUK"};
+    </script>
+    </head>
+  <body>
+    <div id="root"></div>
+  
+    <marimo-code hidden="">
+        import%20marimo%0A%0A__generated_with%20%3D%20%220.7.11%22%0Aapp%20%3D%20marimo.App()%0A%0A%0A%40app.cell%0Adef%20__()%3A%0A%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20import%20seaborn%20as%20sns%0A%20%20%20%20return%20pd%2C%20sns%0A%0A%0A%40app.cell%0Adef%20__(sns)%3A%0A%20%20%20%20df%20%3D%20sns.load_dataset('diamonds')%0A%20%20%20%20return%20df%2C%0A%0A%0A%40app.cell%0Adef%20__(df)%3A%0A%20%20%20%20df.head()%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20__(df)%3A%0A%20%20%20%20df.info()%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A
+    </marimo-code>
+    </body>
+</html>
