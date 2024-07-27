@@ -1,3 +1,3 @@
 # Highlights
-- [diamonds notebook](https://jwr42.github.io/diamonds)
-- link two
+- marimo notebook [diamonds notebook](https://jwr42.github.io/diamonds)
+- shiny app [map example]()
