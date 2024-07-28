@@ -1,3 +1,3 @@
-# Highlights
-- marimo notebook [diamonds notebook](https://jwr42.github.io/diamonds)
-- shiny app [map example](https://jwr42.github.io/site/index.html)
+# Projects
+- Python Shiny Application: [UK Cities Daylight Time](https://jwr42.github.io/daylight-site/)
+- Marimo Python Notebook: [Diamond Dataset Exploration](https://jwr42.github.io/diamonds)
