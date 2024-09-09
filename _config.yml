@@ -1,18 +1,11 @@
-# site settings
+# Site settings
 theme: jekyll-theme-minimal
 title: Jonathan W. Roberts
 description: Bookmark this to keep an eye on all my project updates!
 url: https://jwr42.github.io
 baseurl: 
-
-# Site settings
-email: you@example.com
-description: > # this means to ignore newlines until "baseurl:"
-  A simple, whitespace, helvetica based portfolio theme.
-baseurl:  # the subpath of your site, e.g. /blog/
-url:  # the base hostname & protocol for your site
-twitter_username: twitter_username
-github_username:  github_username
+email: jonathan.w.roberts@pm.me
+github_username:  jwr42
 
 # Build settings
 markdown: kramdown
