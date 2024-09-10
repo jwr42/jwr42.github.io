@@ -1,4 +1,3 @@
 ---
-layout: base
-title: home
+layout: home
 ---
