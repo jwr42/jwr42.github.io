@@ -4,44 +4,6 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-{% for project in site.portfolio %}
-
-{% if project.redirect %}
-<div class="project">
-    <div class="thumbnail">
-        <a href="{{ project.redirect }}" target="_blank">
-        {% if project.img %}
-        <img class="thumbnail" src="{{ project.img }}"/>
-        {% else %}
-        <div class="thumbnail blankbox"></div>
-        {% endif %}    
-        <span>
-            <h1>{{ project.title }}</h1>
-            <br/>
-            <p>{{ project.description }}</p>
-        </span>
-        </a>
-    </div>
-</div>
-{% else %}
-
-<div class="project ">
-    <div class="thumbnail">
-        <a href="{{ site.baseurl }}{{ project.url }}">
-        {% if project.img %}
-        <img class="thumbnail" src="{{ project.img }}"/>
-        {% else %}
-        <div class="thumbnail blankbox"></div>
-        {% endif %}    
-        <span>
-            <h1>{{ project.title }}</h1>
-            <br/>
-            <p>{{ project.description }}</p>
-        </span>
-        </a>
-    </div>
-</div>
-
-{% endif %}
-
-{% endfor %}
+# Projects
+- [UK Cities Daylight Time](https://jwr42.github.io/daylight-time/) - A simple python shinylive application built on the sunrise and open api for sunrise and sunset data, it enavles to user to find the sunrise and sunset times for four different UK cities.
+- [UK General Election Candidate Results](https://jwr42.github.io/election-candidates) - An interactive python shinylive application that helps users to explore the outcome of the last fours UK general election using custom filters, it also enables customised file downloads that change based on the user's perferred filters.
