@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jonathan Roberts</title>
+<title>Projects – Jonathan Roberts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,9 +29,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -61,7 +64,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -84,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link active" href="./projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -100,46 +161,154 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="profile_photo.jpeg" class="about-image
-  rounded " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Jonathan Roberts</h1>
+<h1 class="title">Projects</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/jwr42" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://www.linkedin.com/in/jonathanroberts93/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="mailto:jwr42.quarto@proton.me" class="about-link" rel="" target="">
-    <i class="bi bi-envelope-fill"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://bsky.app/profile/jwr42.bsky.social" class="about-link" rel="" target="">
-     <span class="about-link-text">🦋 Bluesky</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<section id="bio" class="level2">
-<h2 data-anchor-id="bio">Bio</h2>
-<p>I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, &amp; Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology steam) from Imperial College London in 2020.</p>
-<p>On this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out.</p>
 
 
-</section>
-</main></div>
+<p>I enjoy building small projects in my spare time to try out new Python libraries, build Data Visualisations, or explore Open Access data. Here are few of those projects:</p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1725836400000" data-listing-file-modified-sort="1729986818584" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="235">
+<a href="./project_summaries/election-candidates-dashboard.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="project_summaries/screenshots/election_candidates_shinylive_app.png" alt="election candidates dashboard" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+How many candidates stood in the latest UK General Elections?
+</h5>
+<div class="card-text listing-description">
+In this project I build a dashboard using Python to visualise the number of candidates that stood in the last four general elections in the UK. The dashboard uses publicly…
 </div>
- <!-- /main -->
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+2024-09-09
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1723590000000" data-listing-file-modified-sort="1729986809345" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
+<a href="./project_summaries/daylight-time.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="project_summaries/screenshots/daylight-time.png" alt="daylight time dashboard screenshot" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Using an API to build a daylight time dashboard in Python
+</h5>
+<div class="card-text listing-description">
+This project aimed to build a simple dashboard using the sunrisesunset.io API to provide a quick summary of when sunrise and sunset will occur in various cities across the…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+2024-08-14
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1711238400000" data-listing-file-modified-sort="1729986815211" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="165">
+<a href="./project_summaries/blob-python-game.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="project_summaries/screenshots/example_two_player_game.png" alt="two_player_game" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Building a card game using Python
+</h5>
+<div class="card-text listing-description">
+The goal of this project was to build a command line interface game using Python to simulate the popular card game Blob (a variant of Oh Hell or Contract Whist). The most…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+2024-03-24
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1704153600000" data-listing-file-modified-sort="1729986822145" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="529">
+<a href="./project_summaries/helsinki-city-bikes.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="project_summaries/screenshots/helsinki_bikes_dashboard.png" alt="dashboard screenshot" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Can Power BI be used to demo ML methods?
+</h5>
+<div class="card-text listing-description">
+In this project a predictive linear regression model is constructed in from stratch using Power BI. It uses the outside air temperature to predict the number of journeys…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+2024-01-02
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="1700784000000" data-listing-file-modified-sort="1729986868686" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
+<a href="./project_summaries/world-development-indicators.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="project_summaries/screenshots/world-dev.png" alt="World Development Indicator Heatmap" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Using a jupyter notebook and Python to summarise World Development Indicators since 1960
+</h5>
+<div class="card-text listing-description">
+In this project I built a jupyter notebook to explore the completeness of the World Bank’s World Development Indictors dataset since 1960. The key libraries used were Pandas…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+2023-11-24
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -160,6 +329,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
