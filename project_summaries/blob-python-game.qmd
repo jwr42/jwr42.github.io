@@ -1,0 +1,22 @@
+---
+date: 2024-03-24
+---
+
+# Building a card game using Python
+
+The goal of this project was to build a command line interface game using Python to simulate the popular card game Blob (a variant of [Oh Hell or Contract Whist](https://en.wikipedia.org/wiki/Oh_hell)). The most challenging part of the build was understanding the game logic. Blob has rules around following suit that depend on the suit of the first card played in a round and the suits of the cards in a player's hand.
+
+The final program has only one dependency, NumPy, for generating the random numbers need to shuffle the deck of cards. In retrospect the same functionality could also have been achieved with modules from Python's standard library, so if I come back to this project in the future I might look to remove that dependency.
+
+## Features
+
+-   Iterative and conditional control flow statements to manage the player inputs.
+-   Python programmed game logic to determine determine valid user input options and calculate the winner of each match.
+
+## Game Screenshot
+
+<img src="screenshots/example_two_player_game.png" alt="two_player_game" width="800"/>
+
+## GitHub Repo
+
+<https://github.com/jwr42/Blob-CLI-Game>

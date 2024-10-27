@@ -1,0 +1,22 @@
+---
+date: 2024-08-14
+---
+
+# Using an API to build a daylight time dashboard in Python
+
+This project aimed to build a simple dashboard using the [sunrisesunset.io](https://sunrisesunset.io/api/) API to provide a quick summary of when sunrise and sunset will occur in various cities across the UK. It makes use of a few Shinylive app features such as the ipyleaflet map, so the user can quickly identify which city they've selected in the sidebar.
+
+## Features
+
+-   Using an API to pull the data for the the selected location.
+-   Filters in the sidebar to select city and date.
+-   Darkmode toggle switch.
+-   ipyleaflet map to visualise the chosen city's location.
+
+## Screenshot
+
+<img src="screenshots/daylight-time.png" alt="daylight time dashboard screenshot" width="800"/>
+
+## Dashboard Link
+
+<https://jwr42.github.io/daylight-time/>

@@ -1,0 +1,13 @@
+---
+title: "Projects"
+listing:
+    contents: 
+        - "project_summaries/*.md"
+        - "project_summaries/*.qmd"
+    type: grid
+    sort: "date desc"
+    date-format: iso
+search: false
+---
+
+I enjoy building small projects in my spare time to try out new Python libraries, build Data Visualisations, or explore Open Access data. Here are few of those projects:

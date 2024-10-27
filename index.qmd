@@ -1,0 +1,25 @@
+---
+title: "Jonathan Roberts"
+image: profile_photo.jpeg
+about:
+  template: trestles
+  links:
+    - text: GitHub
+      icon: github
+      url: "https://github.com/jwr42"
+    - text: LinkedIn
+      icon: linkedin
+      url: "https://www.linkedin.com/in/jonathanroberts93/"
+    - text: Email
+      icon: envelope-fill
+      url: "mailto:jwr42.quarto@proton.me"
+    - text: "🦋 Bluesky"
+      url: "https://bsky.app/profile/jwr42.bsky.social"
+comments: false
+---
+
+## Bio
+
+I'm an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK's largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology steam) from Imperial College London in 2020.
+
+On this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out.

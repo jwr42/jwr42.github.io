@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jonathan Roberts",
+    "section": "",
+    "text": "I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology steam) from Imperial College London in 2020.\nOn this site I keep a list of personal projects that I enjoy working on in my spare time, if you would like to get in touch with me please feel free to use any of the links provided to reach out."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Here’s a bit about me"
+  },
+  {
+    "objectID": "helsinki-cit-bikes.html",
+    "href": "helsinki-cit-bikes.html",
+    "title": "Jonathan W. Roberts",
+    "section": "",
+    "text": "Predictive linear regression model constructed in Power BI that uses the outside air temperature to predict the number of journeys taken on the Helsinki bike system, in the Helsinki and Espoo metropolitan areas of Finland."
+  },
+  {
+    "objectID": "helsinki-cit-bikes.html#helsinki-city-bike-linear-regression-model",
+    "href": "helsinki-cit-bikes.html#helsinki-city-bike-linear-regression-model",
+    "title": "Jonathan W. Roberts",
+    "section": "",
+    "text": "Predictive linear regression model constructed in Power BI that uses the outside air temperature to predict the number of journeys taken on the Helsinki bike system, in the Helsinki and Espoo metropolitan areas of Finland."
+  },
+  {
+    "objectID": "helsinki-cit-bikes.html#features",
+    "href": "helsinki-cit-bikes.html#features",
+    "title": "Jonathan W. Roberts",
+    "section": "Features",
+    "text": "Features\n\nApplied Power Query Editor steps to aggregate the data from the source to reduce the size of the imported data model\nDAX Script to create two tables for the training data and testing data, using a 70/30 split\nData Visualisations of the training and testing data\nPower BI What If parameter for user interaction with the final linear regression model"
+  },
+  {
+    "objectID": "helsinki-cit-bikes.html#data-source",
+    "href": "helsinki-cit-bikes.html#data-source",
+    "title": "Jonathan W. Roberts",
+    "section": "Data Source",
+    "text": "Data Source\nhttps://www.kaggle.com/datasets/geometrein/helsinki-city-bikes"
+  },
+  {
+    "objectID": "helsinki-cit-bikes.html#dashboard-screenshot",
+    "href": "helsinki-cit-bikes.html#dashboard-screenshot",
+    "title": "Jonathan W. Roberts",
+    "section": "Dashboard Screenshot",
+    "text": "Dashboard Screenshot"
+  },
+  {
+    "objectID": "helsinki-cit-bikes.html#code-extracts",
+    "href": "helsinki-cit-bikes.html#code-extracts",
+    "title": "Jonathan W. Roberts",
+    "section": "Code Extracts",
+    "text": "Code Extracts\n\nPower Query M formula language\nlet\n    Source = Csv.Document(File.Contents(\"C:\\Users\\jonat\\OneDrive\\Code\\Power BI - Helsinki City Bikes\\data\\database.csv\"),[Delimiter=\",\", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),\n    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"departure\", type datetime}, {\"return\", type datetime}, {\"departure_id\", Int64.Type}, {\"departure_name\", type text}, {\"return_id\", Int64.Type}, {\"return_name\", type text}, {\"distance (m)\", type number}, {\"duration (sec.)\", Int64.Type}, {\"avg_speed (km/h)\", type number}, {\"departure_latitude\", type number}, {\"departure_longitude\", type number}, {\"return_latitude\", type number}, {\"return_longitude\", type number}, {\"Air temperature (degC)\", type number}}),\n    #\"Inserted Date\" = Table.AddColumn(#\"Changed Type\", \"Date\", each DateTime.Date([departure]), type date),\n    #\"Reordered Columns\" = Table.ReorderColumns(#\"Inserted Date\",{\"Date\", \"departure\", \"return\", \"departure_id\", \"departure_name\", \"return_id\", \"return_name\", \"distance (m)\", \"duration (sec.)\", \"avg_speed (km/h)\", \"departure_latitude\", \"departure_longitude\", \"return_latitude\", \"return_longitude\", \"Air temperature (degC)\"}),\n    #\"Grouped Rows\" = Table.Group(#\"Reordered Columns\", {\"Date\"}, {{\"Rides\", each Table.RowCount(_), Int64.Type}, {\"AvgAirTemp\", each List.Average([#\"Air temperature (degC)\"]), type nullable number}}),\n    #\"Sorted Rows\" = Table.Sort(#\"Grouped Rows\",{{\"Date\", Order.Descending}}),\n    #\"Filtered Rows\" = Table.SelectRows(#\"Sorted Rows\", each [Date] &gt; #date(2019, 1, 1))\nin\n    #\"Filtered Rows\"\n\n\nDAX Scripts\nRandomNumber = \n// assign a random number to each row in order to randomly assign rows to the testing and training datasets\nRAND()\nTrainData = \n// Use 70% of the rows in the database as training Data\nTOPN(COUNTROWS('Database')*0.7, 'Database', [RandomNumber], ASC)\nGradient = \n// calculate the gradient of the linear regression model\nDIVIDE(COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[Rides]), COUNTROWS(TrainData) * SUMX('TrainData', TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nIntercept = \n// calculate the intercept value of the linear regression model\nDIVIDE(SUMX(TrainData, TrainData[Rides]) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]), COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nTestData = \n// Use 30% of the rows in the database as testing Data\nTOPN(COUNTROWS('Database')*0.3, 'Database', [RandomNumber], DESC)\nPredictedRides = \n// determine the model prediction number of rides for each row in the testing data\n'TrainData'[Gradient] * [AvgAirTemp] + 'TrainData'[Intercept]\nMeanAbsoluteError = \n// calculate the mean absolute error of the model\nAVERAGEX('TestData', ABS([Rides] - [PredictedRides]))"
+  },
+  {
+    "objectID": "project_summaries/helsinki-city-bikes.html",
+    "href": "project_summaries/helsinki-city-bikes.html",
+    "title": "Can Power BI be used to demo ML methods?",
+    "section": "",
+    "text": "In this project a predictive linear regression model is constructed in from stratch using Power BI. It uses the outside air temperature to predict the number of journeys taken on the Helsinki bike system, in the Helsinki and Espoo metropolitan areas of Finland. The project makes use of the Power BI’s DAX language to demo the train-test split method, an important safeguard against overfitting.\nThe resulting dashboard supports user inputs to allow for the user to interact with the simple regression model constructed. It also displays model parameters and evaluation metrics, all calculated using Power BI’s DAX language. Whilst this is an inefficient way to build ML models (the same outcomes could be achieved with a few lines of Python code), it is a nice tool for analysts who are more familiar with Power BI to build up their understanding of introductory ML methods.\n\n\n\nApplied Power Query Editor steps to aggregate the data from the source to reduce the size of the imported data model.\nDAX Script to create two tables for the training data and testing data, using a 70/30 split.\nData Visualisations of the training and testing data.\nPower BI What If parameter for user interaction with the final linear regression model.\n\n\n\n\nhttps://www.kaggle.com/datasets/geometrein/helsinki-city-bikes\n\n\n\n\n\n\n\nhttps://github.com/jwr42/City-Bikes-Regression\n\n\n\n\n\nlet\n    Source = Csv.Document(File.Contents(\"database.csv\"),[Delimiter=\",\", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),\n    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"departure\", type datetime}, {\"return\", type datetime}, {\"departure_id\", Int64.Type}, {\"departure_name\", type text}, {\"return_id\", Int64.Type}, {\"return_name\", type text}, {\"distance (m)\", type number}, {\"duration (sec.)\", Int64.Type}, {\"avg_speed (km/h)\", type number}, {\"departure_latitude\", type number}, {\"departure_longitude\", type number}, {\"return_latitude\", type number}, {\"return_longitude\", type number}, {\"Air temperature (degC)\", type number}}),\n    #\"Inserted Date\" = Table.AddColumn(#\"Changed Type\", \"Date\", each DateTime.Date([departure]), type date),\n    #\"Reordered Columns\" = Table.ReorderColumns(#\"Inserted Date\",{\"Date\", \"departure\", \"return\", \"departure_id\", \"departure_name\", \"return_id\", \"return_name\", \"distance (m)\", \"duration (sec.)\", \"avg_speed (km/h)\", \"departure_latitude\", \"departure_longitude\", \"return_latitude\", \"return_longitude\", \"Air temperature (degC)\"}),\n    #\"Grouped Rows\" = Table.Group(#\"Reordered Columns\", {\"Date\"}, {{\"Rides\", each Table.RowCount(_), Int64.Type}, {\"AvgAirTemp\", each List.Average([#\"Air temperature (degC)\"]), type nullable number}}),\n    #\"Sorted Rows\" = Table.Sort(#\"Grouped Rows\",{{\"Date\", Order.Descending}}),\n    #\"Filtered Rows\" = Table.SelectRows(#\"Sorted Rows\", each [Date] &gt; #date(2019, 1, 1))\nin\n    #\"Filtered Rows\"\n\n\n\nRandomNumber = \n// assign a random number to each row in order to randomly assign rows to the testing and training datasets\nRAND()\nTrainData = \n// Use 70% of the rows in the database as training Data\nTOPN(COUNTROWS('Database')*0.7, 'Database', [RandomNumber], ASC)\nGradient = \n// calculate the gradient of the linear regression model\nDIVIDE(COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[Rides]), COUNTROWS(TrainData) * SUMX('TrainData', TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nIntercept = \n// calculate the intercept value of the linear regression model\nDIVIDE(SUMX(TrainData, TrainData[Rides]) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]), COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nTestData = \n// Use 30% of the rows in the database as testing Data\nTOPN(COUNTROWS('Database')*0.3, 'Database', [RandomNumber], DESC)\nPredictedRides = \n// determine the model prediction number of rides for each row in the testing data\n'TrainData'[Gradient] * [AvgAirTemp] + 'TrainData'[Intercept]\nMeanAbsoluteError = \n// calculate the mean absolute error of the model\nAVERAGEX('TestData', ABS([Rides] - [PredictedRides]))"
+  },
+  {
+    "objectID": "project_summaries/helsinki-city-bikes.html#features",
+    "href": "project_summaries/helsinki-city-bikes.html#features",
+    "title": "Can Power BI be used to demo ML methods?",
+    "section": "",
+    "text": "Applied Power Query Editor steps to aggregate the data from the source to reduce the size of the imported data model.\nDAX Script to create two tables for the training data and testing data, using a 70/30 split.\nData Visualisations of the training and testing data.\nPower BI What If parameter for user interaction with the final linear regression model."
+  },
+  {
+    "objectID": "project_summaries/helsinki-city-bikes.html#data-source",
+    "href": "project_summaries/helsinki-city-bikes.html#data-source",
+    "title": "Can Power BI be used to demo ML methods?",
+    "section": "",
+    "text": "https://www.kaggle.com/datasets/geometrein/helsinki-city-bikes"
+  },
+  {
+    "objectID": "project_summaries/helsinki-city-bikes.html#code-extracts",
+    "href": "project_summaries/helsinki-city-bikes.html#code-extracts",
+    "title": "Can Power BI be used to demo ML methods?",
+    "section": "",
+    "text": "let\n    Source = Csv.Document(File.Contents(\"database.csv\"),[Delimiter=\",\", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),\n    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"departure\", type datetime}, {\"return\", type datetime}, {\"departure_id\", Int64.Type}, {\"departure_name\", type text}, {\"return_id\", Int64.Type}, {\"return_name\", type text}, {\"distance (m)\", type number}, {\"duration (sec.)\", Int64.Type}, {\"avg_speed (km/h)\", type number}, {\"departure_latitude\", type number}, {\"departure_longitude\", type number}, {\"return_latitude\", type number}, {\"return_longitude\", type number}, {\"Air temperature (degC)\", type number}}),\n    #\"Inserted Date\" = Table.AddColumn(#\"Changed Type\", \"Date\", each DateTime.Date([departure]), type date),\n    #\"Reordered Columns\" = Table.ReorderColumns(#\"Inserted Date\",{\"Date\", \"departure\", \"return\", \"departure_id\", \"departure_name\", \"return_id\", \"return_name\", \"distance (m)\", \"duration (sec.)\", \"avg_speed (km/h)\", \"departure_latitude\", \"departure_longitude\", \"return_latitude\", \"return_longitude\", \"Air temperature (degC)\"}),\n    #\"Grouped Rows\" = Table.Group(#\"Reordered Columns\", {\"Date\"}, {{\"Rides\", each Table.RowCount(_), Int64.Type}, {\"AvgAirTemp\", each List.Average([#\"Air temperature (degC)\"]), type nullable number}}),\n    #\"Sorted Rows\" = Table.Sort(#\"Grouped Rows\",{{\"Date\", Order.Descending}}),\n    #\"Filtered Rows\" = Table.SelectRows(#\"Sorted Rows\", each [Date] &gt; #date(2019, 1, 1))\nin\n    #\"Filtered Rows\"\n\n\n\nRandomNumber = \n// assign a random number to each row in order to randomly assign rows to the testing and training datasets\nRAND()\nTrainData = \n// Use 70% of the rows in the database as training Data\nTOPN(COUNTROWS('Database')*0.7, 'Database', [RandomNumber], ASC)\nGradient = \n// calculate the gradient of the linear regression model\nDIVIDE(COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[Rides]), COUNTROWS(TrainData) * SUMX('TrainData', TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nIntercept = \n// calculate the intercept value of the linear regression model\nDIVIDE(SUMX(TrainData, TrainData[Rides]) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]), COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nTestData = \n// Use 30% of the rows in the database as testing Data\nTOPN(COUNTROWS('Database')*0.3, 'Database', [RandomNumber], DESC)\nPredictedRides = \n// determine the model prediction number of rides for each row in the testing data\n'TrainData'[Gradient] * [AvgAirTemp] + 'TrainData'[Intercept]\nMeanAbsoluteError = \n// calculate the mean absolute error of the model\nAVERAGEX('TestData', ABS([Rides] - [PredictedRides]))"
+  },
+  {
+    "objectID": "project_summaries/helsinki-city-bikes.html#dashboard-screenshot",
+    "href": "project_summaries/helsinki-city-bikes.html#dashboard-screenshot",
+    "title": "Helsinki City Bike Regression Model",
+    "section": "Dashboard Screenshot",
+    "text": "Dashboard Screenshot"
+  },
+  {
+    "objectID": "project_summaries/helsinki-city-bikes.html#github-repo",
+    "href": "project_summaries/helsinki-city-bikes.html#github-repo",
+    "title": "Can Power BI be used to demo ML methods?",
+    "section": "",
+    "text": "https://github.com/jwr42/City-Bikes-Regression"
+  },
+  {
+    "objectID": "project_summaries/blob-python-game.html",
+    "href": "project_summaries/blob-python-game.html",
+    "title": "Building a card game using Python",
+    "section": "",
+    "text": "The goal of this project was to build a command line interface game using Python to simulate the popular card game Blob (a variant of Oh Hell or Contract Whist). The most challenging part of the build was understanding the game logic. Blob has rules around following suit that depend on the suit of the first card played in a round and the suits of the cards in a player’s hand.\nThe final program has only one dependency, NumPy, for generating the random numbers need to shuffle the deck of cards. In retrospect the same functionality could also have been achieved with modules from Python’s standard library, so if I come back to this project in the future I might look to remove that dependency.\n\n\n\nIterative and conditional control flow statements to manage the player inputs.\nPython programmed game logic to determine determine valid user input options and calculate the winner of each match.\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/Blob-CLI-Game"
+  },
+  {
+    "objectID": "project_summaries/blob-python-game.html#features",
+    "href": "project_summaries/blob-python-game.html#features",
+    "title": "Building a card game using Python",
+    "section": "",
+    "text": "Iterative and conditional control flow statements to manage the player inputs.\nPython programmed game logic to determine determine valid user input options and calculate the winner of each match."
+  },
+  {
+    "objectID": "project_summaries/blob-python-game.html#github-repo",
+    "href": "project_summaries/blob-python-game.html#github-repo",
+    "title": "Building a card game using Python",
+    "section": "",
+    "text": "https://github.com/jwr42/Blob-CLI-Game"
+  },
+  {
+    "objectID": "project_summaries/election-candidates-dashboard.html",
+    "href": "project_summaries/election-candidates-dashboard.html",
+    "title": "How many candidates stood in the latest UK General Elections?",
+    "section": "",
+    "text": "In this project I build a dashboard using Python to visualise the number of candidates that stood in the last four general elections in the UK. The dashboard uses publicly available data from parliament.uk to display the number of candidates by their party and constituency as well as the total votes they received from the electorate.\nThe dashboard uses Shinylive, so to run it you’ll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user’s device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I’d be interested to see whether a shinylive applet integrated into a quarto doc might be able to achieve a similar outcome.\n\n\n\nDataset covering the previous four general election in the UK.\nFilters for election date, constituency, result, party, and whether the candidate is the speaker of the house of commmons.\nDownload button to allow the user to download the table once they’ll filtered for the information of interest to them.\nSummary statistics at the top of the page to help the user contextualise the statistics in the table.\nTable sorting using the column title to sort by the column’s values.\n\n\n\n\n\n\n\n\nhttps://jwr42.github.io/election-candidates/"
+  },
+  {
+    "objectID": "project_summaries/election-candidates-dashboard.html#features",
+    "href": "project_summaries/election-candidates-dashboard.html#features",
+    "title": "How many candidates stood in the latest UK General Elections?",
+    "section": "",
+    "text": "Dataset covering the previous four general election in the UK.\nFilters for election date, constituency, result, party, and whether the candidate is the speaker of the house of commmons.\nDownload button to allow the user to download the table once they’ll filtered for the information of interest to them.\nSummary statistics at the top of the page to help the user contextualise the statistics in the table.\nTable sorting using the column title to sort by the column’s values."
+  },
+  {
+    "objectID": "project_summaries/election-candidates-dashboard.html#dashboard-link",
+    "href": "project_summaries/election-candidates-dashboard.html#dashboard-link",
+    "title": "How many candidates stood in the latest UK General Elections?",
+    "section": "",
+    "text": "https://jwr42.github.io/election-candidates/"
+  },
+  {
+    "objectID": "project_summaries/world-development-indicators.html",
+    "href": "project_summaries/world-development-indicators.html",
+    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
+    "section": "",
+    "text": "In this project I built a jupyter notebook to explore the completeness of the World Bank’s World Development Indictors dataset since 1960. The key libraries used were Pandas and Matplotlib. Pandas did most of the heavy lisfting in terms of processing the data, and matplotlib (with a bit of Seaborn) was used for teh Data Visualisations.\nCountry Codes presented an interesting challenge for this project, I ended up also using BeautifulSoup to cross reference the country codes with the wikipedia page of ISO country code in order to exclude non-country level statistics from the visualisations (e.g. aggregate statistics for a continent).\nI was particularly pleased with the heatmap visual of indicator completeness over time, you can clearly see the indicators that are recorded once ever 5 years instead of annually on the plot, as well as how some indicators clearly have a significant reporting delay as they disappear in the final years of the dataset. IF I come back to this dataset in the future I might look to create a dashboard using this dataset.\n\n\n\nReading in data from a PostgreSQL server.\nDescriptive statistics of the dataset.\nData cleaning to remove empty columns.\nWebscraping to find ISO country codes.\nReshaping datasets with Pandas.\nPlotting visualisations with Seaborn.\nSummary of key insights.\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/World-Development-Indicators"
+  },
+  {
+    "objectID": "project_summaries/world-development-indicators.html#features",
+    "href": "project_summaries/world-development-indicators.html#features",
+    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
+    "section": "",
+    "text": "Reading in data from a PostgreSQL server.\nDescriptive statistics of the dataset.\nData cleaning to remove empty columns.\nWebscraping to find ISO country codes.\nReshaping datasets with Pandas.\nPlotting visualisations with Seaborn.\nSummary of key insights."
+  },
+  {
+    "objectID": "project_summaries/world-development-indicators.html#github-repo",
+    "href": "project_summaries/world-development-indicators.html#github-repo",
+    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
+    "section": "",
+    "text": "https://github.com/jwr42/World-Development-Indicators"
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Jonathan Roberts",
+    "section": "",
+    "text": "I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology steam) from Imperial College London in 2020.\nOn this site I keep a list of personal projects that I enjoy working on in my spare time, if you would like to get in touch with me please feel free to use any of the links provided to reach out."
+  },
+  {
+    "objectID": "project_summaries/daylight-time.html",
+    "href": "project_summaries/daylight-time.html",
+    "title": "Using an API to build a daylight time dashboard in Python",
+    "section": "",
+    "text": "This project aimed to build a simple dashboard using the sunrisesunset.io API to provide a quick summary of when sunrise and sunset will occur in various cities across the UK. It makes use of a few Shinylive app features such as the ipyleaflet map, so the user can quickly identify which city they’ve selected in the sidebar.\n\n\n\nUsing an API to pull the data for the the selected location.\nFilters in the sidebar to select city and date.\nDarkmode toggle switch.\nipyleaflet map to visualise the chosen city’s location.\n\n\n\n\n\n\n\n\nhttps://jwr42.github.io/daylight-time/"
+  },
+  {
+    "objectID": "project_summaries/daylight-time.html#features",
+    "href": "project_summaries/daylight-time.html#features",
+    "title": "Using an API to build a daylight time dashboard in Python",
+    "section": "",
+    "text": "Using an API to pull the data for the the selected location.\nFilters in the sidebar to select city and date.\nDarkmode toggle switch.\nipyleaflet map to visualise the chosen city’s location."
+  },
+  {
+    "objectID": "project_summaries/daylight-time.html#dashboard-link",
+    "href": "project_summaries/daylight-time.html#dashboard-link",
+    "title": "Using an API to build a daylight time dashboard in Python",
+    "section": "",
+    "text": "https://jwr42.github.io/daylight-time/"
+  }
+]

@@ -1,0 +1,25 @@
+---
+date: 2024-09-09
+---
+
+# How many candidates stood in the latest UK General Elections?
+
+In this project I build a dashboard using Python to visualise the number of candidates that stood in the last four general elections in the UK. The dashboard uses publicly available data from parliament.uk to display the number of candidates by their party and constituency as well as the total votes they received from the electorate.  
+
+The dashboard uses Shinylive, so to run it you'll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user's device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I'd be interested to see whether a shinylive applet  integrated into a quarto doc might be able to achieve a similar outcome. 
+
+## Features
+
+- Dataset covering the previous four general election in the UK.
+- Filters for election date, constituency, result, party, and whether the candidate is the speaker of the house of commmons.
+- Download button to allow the user to download the table once they'll filtered for the information of interest to them.
+- Summary statistics at the top of the page to help the user contextualise the statistics in the table.
+- Table sorting using the column title to sort by the column's values.
+
+## Screenshot
+
+<img src="screenshots/election_candidates_shinylive_app.png" alt="election candidates dashboard" width="800"/>
+
+## Dashboard Link
+
+[https://jwr42.github.io/election-candidates/](https://jwr42.github.io/election-candidates/)

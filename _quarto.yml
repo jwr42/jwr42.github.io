@@ -1,0 +1,30 @@
+project:
+  type: website
+
+language: 
+  search-text-placeholder: Search
+
+website:
+  title: "Jonathan Roberts"
+  navbar:
+    pinned: true
+    left:
+      - projects.qmd
+  search: 
+    keyboard-shortcut: ["?"]
+    location: navbar
+    type: textbox
+  page-footer:
+    center: 
+      - text: "&copy; 2024 Jonathan Roberts"
+
+format:
+  html:
+    theme: 
+      light: flatly
+    css: styles.css
+    toc: false
+
+
+
+

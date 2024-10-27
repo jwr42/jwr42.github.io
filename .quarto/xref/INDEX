@@ -1,0 +1,35 @@
+{
+  "index.qmd": {
+    "index.html": "ffce2a47"
+  },
+  "about.qmd": {
+    "about.html": "4cb19290"
+  },
+  "404.qmd": {
+    "404.html": "ddb37bf6"
+  },
+  "projects.qmd": {
+    "projects.html": "233b6eba"
+  },
+  "helsinki-cit-bikes.md": {
+    "helsinki-cit-bikes.html": "76efb030"
+  },
+  "project_summaries/helsinki-city-bikes.md": {
+    "helsinki-city-bikes.html": "d2c2177e"
+  },
+  "project_summaries/helsinki-city-bikes.qmd": {
+    "helsinki-city-bikes.html": "8e8ed7d3"
+  },
+  "project_summaries/blob-python-game.qmd": {
+    "blob-python-game.html": "eaa188fc"
+  },
+  "project_summaries/election-candidates-dashboard.qmd": {
+    "election-candidates-dashboard.html": "57a25dc1"
+  },
+  "project_summaries/world-development-indicators.qmd": {
+    "world-development-indicators.html": "2b56a2bd"
+  },
+  "project_summaries/daylight-time.qmd": {
+    "daylight-time.html": "39731c10"
+  }
+}
