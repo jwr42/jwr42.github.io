@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Jonathan Roberts",
-    "section": "",
-    "text": "I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology steam) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
-  },
-  {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
-    "title": "Jonathan Roberts",
-    "section": "",
-    "text": "I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology steam) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
-  },
-  {
     "objectID": "project_summaries/helsinki-city-bikes.html",
     "href": "project_summaries/helsinki-city-bikes.html",
     "title": "Can Power BI be used to demo ML methods?",
@@ -89,6 +75,20 @@
     "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
     "section": "",
     "text": "https://github.com/jwr42/World-Development-Indicators"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jonathan Roberts",
+    "section": "",
+    "text": ":::"
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Jonathan Roberts",
+    "section": "Bio",
+    "text": "Bio\nI’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out.\n:::"
   },
   {
     "objectID": "project_summaries/daylight-time.html",
