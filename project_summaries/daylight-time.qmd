@@ -19,4 +19,4 @@ This project aimed to build a simple dashboard using the [sunrisesunset.io](http
 
 ## Dashboard Link
 
-<https://jwr42.github.io/daylight-time/>
+[https://jwr42.github.io/daylight-hours/](https://jwr42.github.io/daylight-hours/)

@@ -22,4 +22,4 @@ The dashboard uses Shinylive, so to run it you'll need a web browser with persmi
 
 ## Dashboard Link
 
-[https://jwr42.github.io/election-candidates/](https://jwr42.github.io/election-candidates/)
+[https://jwr42.github.io/election-table/](https://jwr42.github.io/election-table/)
