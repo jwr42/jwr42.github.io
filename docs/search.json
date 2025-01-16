@@ -81,21 +81,21 @@
     "href": "index.html",
     "title": "Jonathan Roberts",
     "section": "",
-    "text": "I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
+    "text": "I’m an Operations Executive at a leading Data Science training provider based in London, UK. I develop automated reporting tools to support learners complete their courses.\nIn my previous role I taught virtual and in-person workshop sessions on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Tableau, Power BI, & Python).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
   },
   {
     "objectID": "index.html#bio",
     "href": "index.html#bio",
     "title": "Jonathan Roberts",
     "section": "",
-    "text": "I’m an Operations Executive at a leading data training provider based in London, UK. My role is currently split between internal reporting to senior managers and custom external reporting for larger clients. In previous roles I led the training of data analysts from one of UK’s largest retailers and organised data hackathon events. I have experience teaching sessions on a variety of data topics including introductory statistics, hypothesis testing, machine learning methods, predictive modelling methods, data governance, git version control, and data visualisation (in Tableau, Power BI, & Python). I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
+    "text": "I’m an Operations Executive at a leading Data Science training provider based in London, UK. I develop automated reporting tools to support learners complete their courses.\nIn my previous role I taught virtual and in-person workshop sessions on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Tableau, Power BI, & Python).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
   },
   {
     "objectID": "project_summaries/daylight-time.html",
     "href": "project_summaries/daylight-time.html",
     "title": "Using an API to build a daylight time dashboard in Python",
     "section": "",
-    "text": "This project aimed to build a simple dashboard using the sunrisesunset.io API to provide a quick summary of when sunrise and sunset will occur in various cities across the UK. It makes use of a few Shinylive app features such as the ipyleaflet map, so the user can quickly identify which city they’ve selected in the sidebar.\n\n\n\nUsing an API to pull the data for the the selected location.\nFilters in the sidebar to select city and date.\nDarkmode toggle switch.\nipyleaflet map to visualise the chosen city’s location.\n\n\n\n\n\n\n\n\nhttps://jwr42.github.io/daylight-time/"
+    "text": "This project aimed to build a simple dashboard using the sunrisesunset.io API to provide a quick summary of when sunrise and sunset will occur in various cities across the UK. It makes use of a few Shinylive app features such as the ipyleaflet map, so the user can quickly identify which city they’ve selected in the sidebar.\n\n\n\nUsing an API to pull the data for the the selected location.\nFilters in the sidebar to select city and date.\nDarkmode toggle switch.\nipyleaflet map to visualise the chosen city’s location.\n\n\n\n\n\n\n\n\nhttps://jwr42.github.io/daylight-hours/"
   },
   {
     "objectID": "project_summaries/daylight-time.html#features",
@@ -109,14 +109,14 @@
     "href": "project_summaries/daylight-time.html#dashboard-link",
     "title": "Using an API to build a daylight time dashboard in Python",
     "section": "",
-    "text": "https://jwr42.github.io/daylight-time/"
+    "text": "https://jwr42.github.io/daylight-hours/"
   },
   {
     "objectID": "project_summaries/election-candidates-dashboard.html",
     "href": "project_summaries/election-candidates-dashboard.html",
     "title": "How many candidates stood in the latest UK General Elections?",
     "section": "",
-    "text": "In this project I build a dashboard using Python to visualise the number of candidates that stood in the last four general elections in the UK. The dashboard uses publicly available data from parliament.uk to display the number of candidates by their party and constituency as well as the total votes they received from the electorate.\nThe dashboard uses Shinylive, so to run it you’ll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user’s device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I’d be interested to see whether a shinylive applet integrated into a quarto doc might be able to achieve a similar outcome.\n\n\n\nDataset covering the previous four general election in the UK.\nFilters for election date, constituency, result, party, and whether the candidate is the speaker of the house of commmons.\nDownload button to allow the user to download the table once they’ll filtered for the information of interest to them.\nSummary statistics at the top of the page to help the user contextualise the statistics in the table.\nTable sorting using the column title to sort by the column’s values.\n\n\n\n\n\n\n\n\nhttps://jwr42.github.io/election-candidates/"
+    "text": "In this project I build a dashboard using Python to visualise the number of candidates that stood in the last four general elections in the UK. The dashboard uses publicly available data from parliament.uk to display the number of candidates by their party and constituency as well as the total votes they received from the electorate.\nThe dashboard uses Shinylive, so to run it you’ll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user’s device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I’d be interested to see whether a shinylive applet integrated into a quarto doc might be able to achieve a similar outcome.\n\n\n\nDataset covering the previous four general election in the UK.\nFilters for election date, constituency, result, party, and whether the candidate is the speaker of the house of commmons.\nDownload button to allow the user to download the table once they’ll filtered for the information of interest to them.\nSummary statistics at the top of the page to help the user contextualise the statistics in the table.\nTable sorting using the column title to sort by the column’s values.\n\n\n\n\n\n\n\n\nhttps://jwr42.github.io/election-table/"
   },
   {
     "objectID": "project_summaries/election-candidates-dashboard.html#features",
@@ -130,6 +130,6 @@
     "href": "project_summaries/election-candidates-dashboard.html#dashboard-link",
     "title": "How many candidates stood in the latest UK General Elections?",
     "section": "",
-    "text": "https://jwr42.github.io/election-candidates/"
+    "text": "https://jwr42.github.io/election-table/"
   }
 ]
