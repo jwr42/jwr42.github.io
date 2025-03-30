@@ -17,7 +17,7 @@ website:
     type: textbox
   page-footer:
     center: 
-      - text: "&copy; 2024 Jonathan Roberts"
+      - text: "&copy; 2025 Jonathan Roberts"
 
 format:
   html:
