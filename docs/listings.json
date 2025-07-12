@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/project_summaries/regional-election-results.html",
       "/project_summaries/election-candidates-dashboard.html",
       "/project_summaries/daylight-time.html",
       "/project_summaries/blob-python-game.html",

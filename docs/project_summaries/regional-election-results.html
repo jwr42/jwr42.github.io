@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-01-02">
+<meta name="dcterms.date" content="2025-05-11">
 
-<title>helsinki-city-bikes – Jonathan Roberts</title>
+<title>regional-election-results – Jonathan Roberts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -152,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 2, 2024</p>
+      <p class="date">May 11, 2025</p>
     </div>
   </div>
   
@@ -164,73 +129,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="can-power-bi-be-used-to-demo-ml-methods" class="level1">
-<h1>Can Power BI be used to demo ML methods?</h1>
-<p>In this project a predictive linear regression model is constructed in from stratch using Power BI. It uses the outside air temperature to predict the number of journeys taken on the Helsinki bike system, in the Helsinki and Espoo metropolitan areas of Finland. The project makes use of the Power BI’s DAX language to demo the train-test split method, an important safeguard against <a href="https://en.wikipedia.org/wiki/Overfitting">overfitting</a>.</p>
-<p>The resulting dashboard supports user inputs to allow for the user to interact with the simple regression model constructed. It also displays model parameters and evaluation metrics, all calculated using Power BI’s DAX language. Whilst this is an inefficient way to build ML models (the same outcomes could be achieved with a few lines of Python code), it is a nice tool for analysts who are more familiar with Power BI to build up their understanding of introductory ML methods.</p>
+<section id="how-many-candidates-stood-in-the-latest-uk-general-elections" class="level1">
+<h1>How many candidates stood in the latest UK General Elections?</h1>
+<p>What were the regional results of the UK general election? This application visualises the result of the United Kingdom’s 2024 General Election result in terms of the geographic regions of the UK, e.g.&nbsp;Wales, East Midlands, Scotland. The electorate of the United Kingdom (i.e.&nbsp;people with the right to vote) cast ballots to elect a single candidate to become a Member of Parliament (MP) for each constitency (geographic areas of roughly equal population size). There are 650 constituencies in the United Kingdom, each constituency sends one winning candidate to take their seat in the legislative branch of the government, the UK Parliament. The dashboard uses Shinylive, so to run it you’ll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user’s device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g.&nbsp;mobile devices). In future projects I’d be interested to see whether a shinylive applet integrated into a quarto doc might be able to achieve a similar outcome.</p>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li>Applied Power Query Editor steps to aggregate the data from the source to reduce the size of the imported data model.</li>
-<li>DAX Script to create two tables for the training data and testing data, using a 70/30 split.</li>
-<li>Data Visualisations of the training and testing data.</li>
-<li>Power BI What If parameter for user interaction with the final linear regression model.</li>
+<li>Average MP majority - the average difference in number of votes cast for the first place candidate and the second place candidate</li>
+<li>Seats that Changed Party - the total number of constituency seats that were previously held by an MP from a different political party</li>
+<li>Total Votes Case - the number of valid ballots that were counted in a selected region</li>
+<li>Electorate Turnout - the proportion of registered voters who cast a ballot in the election</li>
+<li>Donut visualisation - showing the percentage of constituency seat won by each political party</li>
+<li>Treemap visualisation - showing the proportion of seats that were held or gained by each political party</li>
 </ul>
 </section>
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p><a href="https://www.kaggle.com/datasets/geometrein/helsinki-city-bikes">https://www.kaggle.com/datasets/geometrein/helsinki-city-bikes</a></p>
-</section>
-<section id="dashboard-screenshot" class="level2">
-<h2 class="anchored" data-anchor-id="dashboard-screenshot">Dashboard Screenshot</h2>
-<p><img src="screenshots/helsinki_bikes_dashboard.png" alt="dashboard screenshot" width="800"></p>
+<section id="screenshot" class="level2">
+<h2 class="anchored" data-anchor-id="screenshot">Screenshot</h2>
+<p><img src="screenshots/regional-election-results.png" alt="Regional Election Results Dashboard" width="800"></p>
 </section>
 <section id="github-repo" class="level2">
 <h2 class="anchored" data-anchor-id="github-repo">GitHub Repo</h2>
-<p><a href="https://github.com/jwr42/City-Bikes-Regression">https://github.com/jwr42/City-Bikes-Regression</a></p>
-</section>
-<section id="code-extracts" class="level2">
-<h2 class="anchored" data-anchor-id="code-extracts">Code Extracts</h2>
-<section id="power-query-m-formula-language" class="level3">
-<h3 class="anchored" data-anchor-id="power-query-m-formula-language">Power Query M formula language</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>let</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">Source</span> <span class="op">=</span> Csv.Document(<span class="kw">File</span>.<span class="kw">Contents</span>(<span class="ot">"database.csv"</span>),[Delimiter<span class="op">=</span><span class="ot">","</span>, <span class="kw">Columns</span><span class="op">=</span><span class="dv">14</span>, Encoding<span class="op">=</span><span class="dv">65001</span>, QuoteStyle<span class="op">=</span>QuoteStyle.<span class="kw">None</span>]),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Promoted Headers"</span> <span class="op">=</span> <span class="kw">Table</span>.PromoteHeaders(<span class="kw">Source</span>, [PromoteAllScalars<span class="op">=</span><span class="kw">true</span>]),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Changed Type"</span> <span class="op">=</span> <span class="kw">Table</span>.TransformColumnTypes(#<span class="ot">"Promoted Headers"</span>,{{<span class="ot">"departure"</span>, <span class="kw">type</span> datetime}, {<span class="ot">"return"</span>, <span class="kw">type</span> datetime}, {<span class="ot">"departure_id"</span>, Int64.<span class="kw">Type</span>}, {<span class="ot">"departure_name"</span>, <span class="kw">type</span> text}, {<span class="ot">"return_id"</span>, Int64.<span class="kw">Type</span>}, {<span class="ot">"return_name"</span>, <span class="kw">type</span> text}, {<span class="ot">"distance (m)"</span>, <span class="kw">type</span> <span class="dt">number</span>}, {<span class="ot">"duration (sec.)"</span>, Int64.<span class="kw">Type</span>}, {<span class="ot">"avg_speed (km/h)"</span>, <span class="kw">type</span> <span class="dt">number</span>}, {<span class="ot">"departure_latitude"</span>, <span class="kw">type</span> <span class="dt">number</span>}, {<span class="ot">"departure_longitude"</span>, <span class="kw">type</span> <span class="dt">number</span>}, {<span class="ot">"return_latitude"</span>, <span class="kw">type</span> <span class="dt">number</span>}, {<span class="ot">"return_longitude"</span>, <span class="kw">type</span> <span class="dt">number</span>}, {<span class="ot">"Air temperature (degC)"</span>, <span class="kw">type</span> <span class="dt">number</span>}}),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Inserted Date"</span> <span class="op">=</span> <span class="kw">Table</span>.AddColumn(#<span class="ot">"Changed Type"</span>, <span class="ot">"Date"</span>, <span class="kw">each</span> DateTime.<span class="dt">Date</span>([departure]), <span class="kw">type</span> <span class="dt">date</span>),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Reordered Columns"</span> <span class="op">=</span> <span class="kw">Table</span>.ReorderColumns(#<span class="ot">"Inserted Date"</span>,{<span class="ot">"Date"</span>, <span class="ot">"departure"</span>, <span class="ot">"return"</span>, <span class="ot">"departure_id"</span>, <span class="ot">"departure_name"</span>, <span class="ot">"return_id"</span>, <span class="ot">"return_name"</span>, <span class="ot">"distance (m)"</span>, <span class="ot">"duration (sec.)"</span>, <span class="ot">"avg_speed (km/h)"</span>, <span class="ot">"departure_latitude"</span>, <span class="ot">"departure_longitude"</span>, <span class="ot">"return_latitude"</span>, <span class="ot">"return_longitude"</span>, <span class="ot">"Air temperature (degC)"</span>}),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Grouped Rows"</span> <span class="op">=</span> <span class="kw">Table</span>.<span class="kw">Group</span>(#<span class="ot">"Reordered Columns"</span>, {<span class="ot">"Date"</span>}, {{<span class="ot">"Rides"</span>, <span class="kw">each</span> <span class="kw">Table</span>.RowCount(_), Int64.<span class="kw">Type</span>}, {<span class="ot">"AvgAirTemp"</span>, <span class="kw">each</span> <span class="kw">List</span>.Average([#<span class="ot">"Air temperature (degC)"</span>]), <span class="kw">type</span> nullable <span class="dt">number</span>}}),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Sorted Rows"</span> <span class="op">=</span> <span class="kw">Table</span>.<span class="kw">Sort</span>(#<span class="ot">"Grouped Rows"</span>,{{<span class="ot">"Date"</span>, <span class="kw">Order</span>.Descending}}),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Filtered Rows"</span> <span class="op">=</span> <span class="kw">Table</span>.SelectRows(#<span class="ot">"Sorted Rows"</span>, <span class="kw">each</span> [<span class="dt">Date</span>] <span class="op">&gt;</span> #date(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">in</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    #<span class="ot">"Filtered Rows"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="dax-scripts" class="level3">
-<h3 class="anchored" data-anchor-id="dax-scripts">DAX Scripts</h3>
-<pre><code>RandomNumber = 
-// assign a random number to each row in order to randomly assign rows to the testing and training datasets
-RAND()</code></pre>
-<pre><code>TrainData = 
-// Use 70% of the rows in the database as training Data
-TOPN(COUNTROWS('Database')*0.7, 'Database', [RandomNumber], ASC)</code></pre>
-<pre><code>Gradient = 
-// calculate the gradient of the linear regression model
-DIVIDE(COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[Rides]), COUNTROWS(TrainData) * SUMX('TrainData', TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)</code></pre>
-<pre><code>Intercept = 
-// calculate the intercept value of the linear regression model
-DIVIDE(SUMX(TrainData, TrainData[Rides]) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]), COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)</code></pre>
-<pre><code>TestData = 
-// Use 30% of the rows in the database as testing Data
-TOPN(COUNTROWS('Database')*0.3, 'Database', [RandomNumber], DESC)</code></pre>
-<pre><code>PredictedRides = 
-// determine the model prediction number of rides for each row in the testing data
-'TrainData'[Gradient] * [AvgAirTemp] + 'TrainData'[Intercept]</code></pre>
-<pre><code>MeanAbsoluteError = 
-// calculate the mean absolute error of the model
-AVERAGEX('TestData', ABS([Rides] - [PredictedRides]))</code></pre>
+<p><a href="https://github.com/jwr42/dash-election-app">https://github.com/jwr42/dash-election-app</a></p>
 
 
-</section>
 </section>
 </section>
 

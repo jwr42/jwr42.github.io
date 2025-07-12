@@ -81,14 +81,14 @@
     "href": "index.html",
     "title": "Jonathan Roberts",
     "section": "",
-    "text": "I’m an Operations Executive at a leading Data Science training provider based in London, UK. I develop automated reporting tools to support learners complete their courses.\nIn my previous role I taught virtual and in-person workshop sessions on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Tableau, Power BI, & Python).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
+    "text": "I’m an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the the Operations team. I’m also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.\nFor three years after graduate school I taught virtual and in-person workshop sessions on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Tableau, Power BI, & Python).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
   },
   {
     "objectID": "index.html#bio",
     "href": "index.html#bio",
     "title": "Jonathan Roberts",
     "section": "",
-    "text": "I’m an Operations Executive at a leading Data Science training provider based in London, UK. I develop automated reporting tools to support learners complete their courses.\nIn my previous role I taught virtual and in-person workshop sessions on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Tableau, Power BI, & Python).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
+    "text": "I’m an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the the Operations team. I’m also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.\nFor three years after graduate school I taught virtual and in-person workshop sessions on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Tableau, Power BI, & Python).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
   },
   {
     "objectID": "project_summaries/daylight-time.html",
@@ -131,5 +131,26 @@
     "title": "How many candidates stood in the latest UK General Elections?",
     "section": "",
     "text": "https://jwr42.github.io/election-table/"
+  },
+  {
+    "objectID": "project_summaries/regional-election-results.html",
+    "href": "project_summaries/regional-election-results.html",
+    "title": "How many candidates stood in the latest UK General Elections?",
+    "section": "",
+    "text": "What were the regional results of the UK general election? This application visualises the result of the United Kingdom’s 2024 General Election result in terms of the geographic regions of the UK, e.g. Wales, East Midlands, Scotland. The electorate of the United Kingdom (i.e. people with the right to vote) cast ballots to elect a single candidate to become a Member of Parliament (MP) for each constitency (geographic areas of roughly equal population size). There are 650 constituencies in the United Kingdom, each constituency sends one winning candidate to take their seat in the legislative branch of the government, the UK Parliament. The dashboard uses Shinylive, so to run it you’ll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user’s device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I’d be interested to see whether a shinylive applet integrated into a quarto doc might be able to achieve a similar outcome.\n\n\n\nAverage MP majority - the average difference in number of votes cast for the first place candidate and the second place candidate\nSeats that Changed Party - the total number of constituency seats that were previously held by an MP from a different political party\nTotal Votes Case - the number of valid ballots that were counted in a selected region\nElectorate Turnout - the proportion of registered voters who cast a ballot in the election\nDonut visualisation - showing the percentage of constituency seat won by each political party\nTreemap visualisation - showing the proportion of seats that were held or gained by each political party\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/dash-election-app"
+  },
+  {
+    "objectID": "project_summaries/regional-election-results.html#features",
+    "href": "project_summaries/regional-election-results.html#features",
+    "title": "How many candidates stood in the latest UK General Elections?",
+    "section": "",
+    "text": "Average MP majority - the average difference in number of votes cast for the first place candidate and the second place candidate\nSeats that Changed Party - the total number of constituency seats that were previously held by an MP from a different political party\nTotal Votes Case - the number of valid ballots that were counted in a selected region\nElectorate Turnout - the proportion of registered voters who cast a ballot in the election\nDonut visualisation - showing the percentage of constituency seat won by each political party\nTreemap visualisation - showing the proportion of seats that were held or gained by each political party"
+  },
+  {
+    "objectID": "project_summaries/regional-election-results.html#github-repo",
+    "href": "project_summaries/regional-election-results.html#github-repo",
+    "title": "How many candidates stood in the latest UK General Elections?",
+    "section": "",
+    "text": "https://github.com/jwr42/dash-election-app"
   }
 ]
