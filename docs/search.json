@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "project_summaries/world-development-indicators.html",
+    "href": "project_summaries/world-development-indicators.html",
+    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
+    "section": "",
+    "text": "In this project I built a jupyter notebook to explore the completeness of the World Bank’s World Development Indictors dataset since 1960. The key libraries used were Pandas and Matplotlib. Pandas did most of the heavy lisfting in terms of processing the data, and matplotlib (with a bit of Seaborn) was used for teh Data Visualisations.\nCountry Codes presented an interesting challenge for this project, I ended up also using BeautifulSoup to cross reference the country codes with the wikipedia page of ISO country code in order to exclude non-country level statistics from the visualisations (e.g. aggregate statistics for a continent).\nI was particularly pleased with the heatmap visual of indicator completeness over time, you can clearly see the indicators that are recorded once ever 5 years instead of annually on the plot, as well as how some indicators clearly have a significant reporting delay as they disappear in the final years of the dataset. IF I come back to this dataset in the future I might look to create a dashboard using this dataset.\n\n\n\nReading in data from a PostgreSQL server.\nDescriptive statistics of the dataset.\nData cleaning to remove empty columns.\nWebscraping to find ISO country codes.\nReshaping datasets with Pandas.\nPlotting visualisations with Seaborn.\nSummary of key insights.\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/World-Development-Indicators"
+  },
+  {
+    "objectID": "project_summaries/world-development-indicators.html#features",
+    "href": "project_summaries/world-development-indicators.html#features",
+    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
+    "section": "",
+    "text": "Reading in data from a PostgreSQL server.\nDescriptive statistics of the dataset.\nData cleaning to remove empty columns.\nWebscraping to find ISO country codes.\nReshaping datasets with Pandas.\nPlotting visualisations with Seaborn.\nSummary of key insights."
+  },
+  {
+    "objectID": "project_summaries/world-development-indicators.html#github-repo",
+    "href": "project_summaries/world-development-indicators.html#github-repo",
+    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
+    "section": "",
+    "text": "https://github.com/jwr42/World-Development-Indicators"
+  },
+  {
     "objectID": "project_summaries/helsinki-city-bikes.html",
     "href": "project_summaries/helsinki-city-bikes.html",
     "title": "Can Power BI be used to demo ML methods?",
@@ -35,62 +56,6 @@
     "text": "let\n    Source = Csv.Document(File.Contents(\"database.csv\"),[Delimiter=\",\", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),\n    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"departure\", type datetime}, {\"return\", type datetime}, {\"departure_id\", Int64.Type}, {\"departure_name\", type text}, {\"return_id\", Int64.Type}, {\"return_name\", type text}, {\"distance (m)\", type number}, {\"duration (sec.)\", Int64.Type}, {\"avg_speed (km/h)\", type number}, {\"departure_latitude\", type number}, {\"departure_longitude\", type number}, {\"return_latitude\", type number}, {\"return_longitude\", type number}, {\"Air temperature (degC)\", type number}}),\n    #\"Inserted Date\" = Table.AddColumn(#\"Changed Type\", \"Date\", each DateTime.Date([departure]), type date),\n    #\"Reordered Columns\" = Table.ReorderColumns(#\"Inserted Date\",{\"Date\", \"departure\", \"return\", \"departure_id\", \"departure_name\", \"return_id\", \"return_name\", \"distance (m)\", \"duration (sec.)\", \"avg_speed (km/h)\", \"departure_latitude\", \"departure_longitude\", \"return_latitude\", \"return_longitude\", \"Air temperature (degC)\"}),\n    #\"Grouped Rows\" = Table.Group(#\"Reordered Columns\", {\"Date\"}, {{\"Rides\", each Table.RowCount(_), Int64.Type}, {\"AvgAirTemp\", each List.Average([#\"Air temperature (degC)\"]), type nullable number}}),\n    #\"Sorted Rows\" = Table.Sort(#\"Grouped Rows\",{{\"Date\", Order.Descending}}),\n    #\"Filtered Rows\" = Table.SelectRows(#\"Sorted Rows\", each [Date] &gt; #date(2019, 1, 1))\nin\n    #\"Filtered Rows\"\n\n\n\nRandomNumber = \n// assign a random number to each row in order to randomly assign rows to the testing and training datasets\nRAND()\nTrainData = \n// Use 70% of the rows in the database as training Data\nTOPN(COUNTROWS('Database')*0.7, 'Database', [RandomNumber], ASC)\nGradient = \n// calculate the gradient of the linear regression model\nDIVIDE(COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[Rides]), COUNTROWS(TrainData) * SUMX('TrainData', TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nIntercept = \n// calculate the intercept value of the linear regression model\nDIVIDE(SUMX(TrainData, TrainData[Rides]) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp]) * SUMX(TrainData, TrainData[AvgAirTemp] * TrainData[Rides]), COUNTROWS(TrainData) * SUMX(TrainData, TrainData[AvgAirTemp]^2) - SUMX(TrainData, TrainData[AvgAirTemp])^2, 0)\nTestData = \n// Use 30% of the rows in the database as testing Data\nTOPN(COUNTROWS('Database')*0.3, 'Database', [RandomNumber], DESC)\nPredictedRides = \n// determine the model prediction number of rides for each row in the testing data\n'TrainData'[Gradient] * [AvgAirTemp] + 'TrainData'[Intercept]\nMeanAbsoluteError = \n// calculate the mean absolute error of the model\nAVERAGEX('TestData', ABS([Rides] - [PredictedRides]))"
   },
   {
-    "objectID": "project_summaries/blob-python-game.html",
-    "href": "project_summaries/blob-python-game.html",
-    "title": "Building a card game using Python",
-    "section": "",
-    "text": "The goal of this project was to build a command line interface game using Python to simulate the popular card game Blob (a variant of Oh Hell or Contract Whist). The most challenging part of the build was understanding the game logic. Blob has rules around following suit that depend on the suit of the first card played in a round and the suits of the cards in a player’s hand.\nThe final program has only one dependency, NumPy, for generating the random numbers need to shuffle the deck of cards. In retrospect the same functionality could also have been achieved with modules from Python’s standard library, so if I come back to this project in the future I might look to remove that dependency.\n\n\n\nIterative and conditional control flow statements to manage the player inputs.\nPython programmed game logic to determine determine valid user input options and calculate the winner of each match.\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/Blob-CLI-Game"
-  },
-  {
-    "objectID": "project_summaries/blob-python-game.html#features",
-    "href": "project_summaries/blob-python-game.html#features",
-    "title": "Building a card game using Python",
-    "section": "",
-    "text": "Iterative and conditional control flow statements to manage the player inputs.\nPython programmed game logic to determine determine valid user input options and calculate the winner of each match."
-  },
-  {
-    "objectID": "project_summaries/blob-python-game.html#github-repo",
-    "href": "project_summaries/blob-python-game.html#github-repo",
-    "title": "Building a card game using Python",
-    "section": "",
-    "text": "https://github.com/jwr42/Blob-CLI-Game"
-  },
-  {
-    "objectID": "project_summaries/world-development-indicators.html",
-    "href": "project_summaries/world-development-indicators.html",
-    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
-    "section": "",
-    "text": "In this project I built a jupyter notebook to explore the completeness of the World Bank’s World Development Indictors dataset since 1960. The key libraries used were Pandas and Matplotlib. Pandas did most of the heavy lisfting in terms of processing the data, and matplotlib (with a bit of Seaborn) was used for teh Data Visualisations.\nCountry Codes presented an interesting challenge for this project, I ended up also using BeautifulSoup to cross reference the country codes with the wikipedia page of ISO country code in order to exclude non-country level statistics from the visualisations (e.g. aggregate statistics for a continent).\nI was particularly pleased with the heatmap visual of indicator completeness over time, you can clearly see the indicators that are recorded once ever 5 years instead of annually on the plot, as well as how some indicators clearly have a significant reporting delay as they disappear in the final years of the dataset. IF I come back to this dataset in the future I might look to create a dashboard using this dataset.\n\n\n\nReading in data from a PostgreSQL server.\nDescriptive statistics of the dataset.\nData cleaning to remove empty columns.\nWebscraping to find ISO country codes.\nReshaping datasets with Pandas.\nPlotting visualisations with Seaborn.\nSummary of key insights.\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/World-Development-Indicators"
-  },
-  {
-    "objectID": "project_summaries/world-development-indicators.html#features",
-    "href": "project_summaries/world-development-indicators.html#features",
-    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
-    "section": "",
-    "text": "Reading in data from a PostgreSQL server.\nDescriptive statistics of the dataset.\nData cleaning to remove empty columns.\nWebscraping to find ISO country codes.\nReshaping datasets with Pandas.\nPlotting visualisations with Seaborn.\nSummary of key insights."
-  },
-  {
-    "objectID": "project_summaries/world-development-indicators.html#github-repo",
-    "href": "project_summaries/world-development-indicators.html#github-repo",
-    "title": "Using a jupyter notebook and Python to summarise World Development Indicators since 1960",
-    "section": "",
-    "text": "https://github.com/jwr42/World-Development-Indicators"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Jonathan Roberts",
-    "section": "",
-    "text": "I’m an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the Operations team. I’m also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.\nFor three years after graduate school I taught workshops on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Python, Power BI, and Tableau).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
-  },
-  {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
-    "title": "Jonathan Roberts",
-    "section": "",
-    "text": "I’m an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the Operations team. I’m also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.\nFor three years after graduate school I taught workshops on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Python, Power BI, and Tableau).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
-  },
-  {
     "objectID": "project_summaries/daylight-time.html",
     "href": "project_summaries/daylight-time.html",
     "title": "Using an API to build a daylight time dashboard in Python",
@@ -110,6 +75,41 @@
     "title": "Using an API to build a daylight time dashboard in Python",
     "section": "",
     "text": "https://jwr42.github.io/daylight-hours/"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jonathan Roberts",
+    "section": "",
+    "text": "I’m an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the Operations team. I’m also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.\nFor three years after graduate school I taught workshops on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Python, Power BI, and Tableau).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Jonathan Roberts",
+    "section": "",
+    "text": "I’m an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the Operations team. I’m also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.\nFor three years after graduate school I taught workshops on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Python, Power BI, and Tableau).\nI was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.\nOn this site I keep a few of my personal projects that I work on in my spare time. If you would like to get in touch with me please feel free to use any of the links provided to reach out."
+  },
+  {
+    "objectID": "project_summaries/blob-python-game.html",
+    "href": "project_summaries/blob-python-game.html",
+    "title": "Building a card game using Python",
+    "section": "",
+    "text": "The goal of this project was to build a command line interface game using Python to simulate the popular card game Blob (a variant of Oh Hell or Contract Whist). The most challenging part of the build was understanding the game logic. Blob has rules around following suit that depend on the suit of the first card played in a round and the suits of the cards in a player’s hand.\nThe final program has only one dependency, NumPy, for generating the random numbers need to shuffle the deck of cards. In retrospect the same functionality could also have been achieved with modules from Python’s standard library, so if I come back to this project in the future I might look to remove that dependency.\n\n\n\nIterative and conditional control flow statements to manage the player inputs.\nPython programmed game logic to determine determine valid user input options and calculate the winner of each match.\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/Blob-CLI-Game"
+  },
+  {
+    "objectID": "project_summaries/blob-python-game.html#features",
+    "href": "project_summaries/blob-python-game.html#features",
+    "title": "Building a card game using Python",
+    "section": "",
+    "text": "Iterative and conditional control flow statements to manage the player inputs.\nPython programmed game logic to determine determine valid user input options and calculate the winner of each match."
+  },
+  {
+    "objectID": "project_summaries/blob-python-game.html#github-repo",
+    "href": "project_summaries/blob-python-game.html#github-repo",
+    "title": "Building a card game using Python",
+    "section": "",
+    "text": "https://github.com/jwr42/Blob-CLI-Game"
   },
   {
     "objectID": "project_summaries/election-candidates-dashboard.html",
@@ -137,7 +137,7 @@
     "href": "project_summaries/regional-election-results.html",
     "title": "Building a regional election results dashboard in Python with Plotly Dash",
     "section": "",
-    "text": "What were the regional results of the UK general election? This application visualises the result of the United Kingdom’s 2024 General Election result in terms of the geographic regions of the UK, e.g. Wales, East Midlands, Scotland. The electorate of the United Kingdom (i.e. people with the right to vote) cast ballots to elect a single candidate to become a Member of Parliament (MP) for each constitency (geographic areas of roughly equal population size). There are 650 constituencies in the United Kingdom, each constituency sends one winning candidate to take their seat in the legislative branch of the government, the UK Parliament. The dashboard uses Shinylive, so to run it you’ll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user’s device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I’d be interested to see whether a shinylive applet integrated into a quarto doc might be able to achieve a similar outcome.\n\n\n\nAverage MP majority - the average difference in number of votes cast for the first place candidate and the second place candidate\nSeats that Changed Party - the total number of constituency seats that were previously held by an MP from a different political party\nTotal Votes Case - the number of valid ballots that were counted in a selected region\nElectorate Turnout - the proportion of registered voters who cast a ballot in the election\nDonut visualisation - showing the percentage of constituency seat won by each political party\nTreemap visualisation - showing the proportion of seats that were held or gained by each political party\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/dash-election-app"
+    "text": "What were the regional results of the UK general election? This application visualises the result of the United Kingdom’s 2024 General Election result in terms of the geographic regions of the UK, e.g. Wales, East Midlands, Scotland. The electorate of the United Kingdom (i.e. people with the right to vote) cast ballots to elect a single candidate to become a Member of Parliament (MP) for each constitency (geographic areas of roughly equal population size). There are 650 constituencies in the United Kingdom, each constituency sends one winning candidate to take their seat in the legislative branch of the government, the UK Parliament.\n\n\n\nAverage MP majority - the average difference in number of votes cast for the first place candidate and the second place candidate\nSeats that Changed Party - the total number of constituency seats that were previously held by an MP from a different political party\nTotal Votes Case - the number of valid ballots that were counted in a selected region\nElectorate Turnout - the proportion of registered voters who cast a ballot in the election\nDonut visualisation - showing the percentage of constituency seat won by each political party\nTreemap visualisation - showing the proportion of seats that were held or gained by each political party\n\n\n\n\n\n\n\n\nhttps://github.com/jwr42/dash-election-app"
   },
   {
     "objectID": "project_summaries/regional-election-results.html#features",

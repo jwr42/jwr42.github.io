@@ -5,7 +5,6 @@ date: 2025-05-11
 # Building a regional election results dashboard in Python with Plotly Dash
 
 What were the regional results of the UK general election? This application visualises the result of the United Kingdom's 2024 General Election result in terms of the geographic regions of the UK, e.g. Wales, East Midlands, Scotland. The electorate of the United Kingdom (i.e. people with the right to vote) cast ballots to elect a single candidate to become a Member of Parliament (MP) for each constitency (geographic areas of roughly equal population size). There are 650 constituencies in the United Kingdom, each constituency sends one winning candidate to take their seat in the legislative branch of the government, the UK Parliament.
-The dashboard uses Shinylive, so to run it you'll need a web browser with persmission to run Pyodide (Python and a few Python packages compiled to WebAssembly). Another limitations is that with a Shinylive dashboard the user's device is processing the data rather than a server, so this can lead to long loading times for devices with low compute power (e.g. mobile devices). In future projects I'd be interested to see whether a shinylive applet  integrated into a quarto doc might be able to achieve a similar outcome. 
 
 ## Features
 
