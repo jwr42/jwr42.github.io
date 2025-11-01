@@ -18,9 +18,9 @@ comments: false
 
 ## Bio
 
-I'm an Operations Executive at a leading Data & AI training provider based in London, UK. I develop automated tools using a combination of SQL, Metabase, Python, Zapier, and Cassidy to support the Operations team. I'm also responsible for organising engaging Data Hackathon events for the some the largest clients at the organisation.
+Interest Areas: Computational Science & Applied Statistics
 
-For three years after graduate school I taught workshops on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Python, Power BI, and Tableau). 
+After graduate school I taught workshops on data structures, statistics, hypothesis testing, Python programming, machine learning methods, predictive modelling, git version control, and data visualisation (in Python, Power BI, and Tableau). 
 
 I was awarded a First Class Honours for my BSc degree in Theoretical and Computational Physics from Cardiff University in 2018 and a Distinction for my MRes degree in Biomedical Research (epidemiology stream) from Imperial College London in 2020.
 
