@@ -135,6 +135,7 @@ pyrightconfig.json
 .history
 .ionide
 
-# quarto 
+# quarto
 /.quarto/
 /.quarto/.DS_Store
+**/*.quarto_ipynb
