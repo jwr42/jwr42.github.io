@@ -8,6 +8,6 @@ Repository for the code & contents of the https://jwr42.github.io/ website.
 
 To render the new content install [quarto](https://quarto.org/) and run:
 
-```{bash}
+```bash
 quarto render
 ```
